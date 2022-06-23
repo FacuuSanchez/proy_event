@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="/cursos/create/">Crear Nuevo Curso</a>
+{% for curso in cursos %}
+<p>
+    <h2 style="color: darkblue;">
+        {{ curso.titulo }}
+    </h2>
+<p>
+    <h4 style="color: darkred;">
+        {{ curso.subtitulo }}
+    </h4>
+</p>
+{{ curso.descripcion }}
+<p>
+{% if curso.imagen %}
+    <img src="{{ curso.imagen.url }}" alt="">
+{% endif %}
+</p>
+</p>
+<p>
+    <a href="/cursos/{{ curso.id }}">Editar Curso</a>
+    <a href="/cursos/delete/{{ curso.id }}">Eliminar Curso</a>
+    <a href="/cursos/{{ curso.slug }}">Comisiones Disponibles</a>
+</p>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% for comision in comisiones %}
+<p>
+    <h2>
+        {{ comision.curso.titulo }}
+    </h2>
+</p>
+<p>
+    <h4>
+        {{ comision.profesor.persona }}
+    </h4>
+</p>
+<p>
+    {{ comision.cupos }}
+</p>
+<p>
+    {{ comision.estado }}
+</p>
+<p>
+    {{ comision.fecha_inicio }}
+</p>
+<p>
+    {{ comision.fecha_fin }}
+</p>
+<p>
+    {{ comision.hora_inicio }}
+</p>
+<p>
+    {{ comision.hora_fin }}
+</p>
+<a href="/cursos/comision/{{ comision.id }}">Editar Comision</a>
+<p>
+    <a href="">Borrar Comision</a>
+</p>
+{% endfor %}

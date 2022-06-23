@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/eventos/create/" method="POST" class="card card-body bg-secondary" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>
+        <label for="titulo">Titulo</label>
+        <input type="text" name="titulo" class="form-control mb-2">
+    </p>
+    <p>
+        <label for="subtitulo">Subtitulo</label>
+        <input type="text" name="subtitulo" class="form-control mb-2">
+    </p>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="descripcion"></textarea>
+    </div>
+    <label for="select-form">Estado del Evento</label>
+    <div class="mb-3">
+    <select class="form-select" name="estado">
+        <option value="True">Activo</option>
+        <option value="False">Inactivo</option>
+    </select>
+    </div>
+    <div class="mb-3">
+    <label for="select-form">Relevancia del Evento</label>
+    <select class="form-select" name="relevancia">
+        <option value="True">Activo</option>
+        <option value="False">Inactivo</option>
+    </select>
+    </div>
+    <p>
+        <label for="fecha_inicio">Fecha de Inicio</label>
+        <input type="text" name="fecha_inicio" class="form-control mb-2" placeholder="DIA/MES/AÑO">
+    </p>
+    <p>
+        <label for="fecha_fin">Fecha de Finalizacion</label>
+        <input type="text" name="fecha_fin" class="form-control mb-2" placeholder="DIA/MES/AÑO">
+    </p>
+    <p>
+        <label for="hora_inicio">Hora de Inicio</label>
+        <input type="text" name="hora_inicio" class="form-control mb-2" placeholder="HORA:MINUTOS:SEGUNDOS">
+    </p>
+    <p>
+        <label for="hora_fin">Hora de Finalizacion</label>
+        <input type="text" name="hora_fin" class="form-control mb-2" placeholder="HORA:MINUTOS:SEGUNDOS">
+    </p>
+    <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen del Evento</label>
+        <input class="form-control" type="file" id="formFile" name="imagen">
+      </div>
+    <input class="btn btn-success" type="submit" value="Crear">
+</form>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+    <a href="/eventos/create/">Crear Nuevo Evento</a>
+</p>
+{% for evento in eventos %}
+<p>
+    <h3>
+        {{ evento.titulo }}
+    </h3>
+<p>
+    <h5>
+        {{ evento.subtitulo }}
+    </h5>
+</p>
+{{ evento.descripcion }}
+<p>
+<p>
+    {{ evento.fecha_inicio }} -
+    {{ evento.fecha_fin }}
+</p>
+<p>
+    {{ evento.hora_inicio}} - 
+    {{ evento.hora_fin }}
+</p>
+    
+{% if evento.imagen %}
+    <img src="{{ evento.imagen.url }}" alt="{{ evento.titulo }}">
+{% endif %}
+</p>
+<a href="./{{ evento.id }}">Editar Evento</a>
+</p>
+<a href="./delete/{{ evento.id }}">Eliminar Evento</a>
+{% endfor %}
+{% endblock content %}
